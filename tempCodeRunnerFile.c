@@ -18,10 +18,3 @@ int main() {
     printf("%d", tohop);
     return 0;
 }
-
-
-//Duy Khasnh
-//ABCD
-//EFGH
-//
-//
