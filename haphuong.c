@@ -1,27 +1,40 @@
-#include<stdio.h>
-#define MAX 100
-int M[MAX][MAX];
-int C(int k, int n){
-    if(k == 0 || k ==n) return 1;
-    if(M[k][n] != 0) return M[k][n];
-    else{
-        M[k][n] = C(k, n-1) + C(k-1, n-1);
-        return M[k][n];
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+//Complete the following function.
+
+int marks_summation(int* marks, int number_of_students, char gender) {
+  int sum;
+  if(gender == 'b'){
+      for(int i=0; i<number_of_students; i++){
+          sum += *(marks + (2*i));
+      }
+      return sum;
+  }else if(gender == 'g'){
+      for(int i=0; i<number_of_students; i++){
+          sum += *(marks + (2*i+1));
+      return sum;
+  }
+}
+}
+int main() {
+    int number_of_students;
+    char gender;
+    int sum;
+  
+    scanf("%d", &number_of_students);
+    int *marks = (int *) malloc(number_of_students * sizeof (int));
+ 
+    for (int student = 0; student < number_of_students; student++) {
+        scanf("%d", (marks + student));
     }
     
-}
-
-int main() {
-    int m, n, tohop;
-    scanf("%d %d", &m, &n);
-    tohop = C(m-1, m+n-2);
-    printf("%d", tohop);
+    scanf(" %c", &gender);
+    sum = marks_summation(marks, number_of_students, gender);
+    printf("%d", sum);
+    free(marks);
+ 
     return 0;
 }
-
-
-//Duy Khasnh
-//ABCD
-//EFGH
-//
-//
